@@ -112,6 +112,19 @@ function storageAvailable(type) {
   }
 }
 
+let availableStorage;
+
+if (storageAvailable('localStorage')) {
+  // Yippee! We can use localStorage awesomeness
+  availableStorage = window.localStorage;
+} else {
+  // Too bad, no localStorage for us
+  availableStorage = null;
+}
+// create a single object for the data
+const inputDataObject = {};
+
+
 window.onload = () => {
   bookLoders();
 };
