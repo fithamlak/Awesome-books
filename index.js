@@ -80,7 +80,7 @@ function bookLoders() {
 addButton.addEventListener('click', () => {
   addBook(titleInput.value, autherInput.value);
 });
-//data is preserved in the browser's memory by using localStorage.
+//  data is preserved in the browser's memory by using localStorage.
 // check local storage available
 // - if available : create local storage object
 // - if not: null
@@ -123,8 +123,36 @@ if (storageAvailable('localStorage')) {
 }
 // create a single object for the data
 const inputDataObject = {};
+// function to store data in a loclaStorage
+function storeData() {
+  inputDataObject.title = titleInput.value;
+  inputDataObject.author = autherInput.value;
+  const jsonData = JSON.stringify(inputDataObject);
+  availableStorage.setItem('InputData', jsonData);
+}
 
+// listen to change on input fields
+titleInput.addEventListener('change', () => {
+  storeData();
+});
+
+autherInput.addEventListener('change', () => {
+  storeData();
+});
+
+// retrive the data by stringify and
+// set the object to local on loads of page
+function retrieveData() {
+  const bookData = availableStorage.getItem('InputData');
+  const parseBookData = JSON.parse(bookData);
+  if (bookData?.length > 0) {
+    const { title, author } = parseBookData;
+    titleInput.value = title || '';
+    autherInput.value = author || '';
+  }
+}
 
 window.onload = () => {
+  retrieveData();
   bookLoders();
 };
