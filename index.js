@@ -14,3 +14,11 @@ const listOfBooks = [
     author: 'napleon hill',
   },
 ];
+// Create a function to add a new book to the collection, with title and author
+function addBook(title, author) {
+  const tempBook = {
+    title,
+    author,
+  };
+  listOfBooks.push(tempBook);
+}
