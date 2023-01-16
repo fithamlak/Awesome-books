@@ -51,7 +51,6 @@ function addBook(title, author) {
 function removeBook(index) {
   listOfBooks.splice(listOfBooks.findIndex((e) => e.title === listOfBooks[index].title
   && e.author === listOfBooks[index].author), 1);
-  console.log(listOfBooks);
 }
 // Display all books saved in the collection in the top part of the page.
 function bookLoders() {
