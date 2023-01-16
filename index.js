@@ -38,6 +38,9 @@ function addBook(title, author) {
   book.append(authr);
   const button = document.createElement('button');
   button.innerText = 'Remove';
+  button.addEventListener('click', () => {
+    book.style.display = 'none';
+  });
   book.append(button);
   const line = document.createElement('hr');
   book.append(line);
@@ -48,6 +51,7 @@ function addBook(title, author) {
 function removeBook(index) {
   listOfBooks.splice(listOfBooks.findIndex((e) => e.title === listOfBooks[index].title
   && e.author === listOfBooks[index].author), 1);
+  console.log(listOfBooks);
 }
 // Display all books saved in the collection in the top part of the page.
 function bookLoders() {
@@ -61,6 +65,10 @@ function bookLoders() {
     book.append(author);
     const button = document.createElement('button');
     button.innerText = 'Remove';
+    button.addEventListener('click', () => {
+      removeBook(k);
+      book.style.display = 'none';
+    });
     book.append(button);
     const line = document.createElement('hr');
     book.append(line);
