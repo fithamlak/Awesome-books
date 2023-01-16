@@ -1,4 +1,7 @@
 const dynamicCreation = document.querySelector('.daynamic');
+const addButton = document.querySelector('#add');
+const titleInput = document.querySelector('#title');
+const autherInput = document.querySelector('#author');
 
 // Create a collection that keeps a list of books
 const listOfBooks = [
@@ -15,13 +18,30 @@ const listOfBooks = [
     author: 'napleon hill',
   },
 ];
+
 // Create a function to add a new book to the collection, with title and author
 function addBook(title, author) {
   const tempBook = {
     title,
     author,
   };
+  // save the new added book into the collection
   listOfBooks.push(tempBook);
+  // desplay the new added book into the page
+  const addedBooks = document.querySelector('#add_books');
+  const book = document.createElement('article');
+  const titl = document.createElement('p');
+  titl.innerText = tempBook.title;
+  const authr = document.createElement('p');
+  authr.innerText = tempBook.author;
+  book.append(titl);
+  book.append(authr);
+  const button = document.createElement('button');
+  button.innerText = 'Remove';
+  book.append(button);
+  const line = document.createElement('hr');
+  book.append(line);
+  addedBooks.append(book);
 }
 
 // Create a function to remove a book from the collection
@@ -47,6 +67,11 @@ function bookLoders() {
     dynamicCreation.append(book);
   }
 }
+
+// add a new book to the collection and desplay it into the page when add button is clicked
+addButton.addEventListener('click', () => {
+  addBook(titleInput.value, autherInput.value);
+});
 window.onload = () => {
   bookLoders();
 };
