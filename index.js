@@ -22,3 +22,9 @@ function addBook(title, author) {
   };
   listOfBooks.push(tempBook);
 }
+
+// Create a function to remove a book from the collection
+function removeBook(index) {
+  listOfBooks.splice(listOfBooks.findIndex((e) => e.title === listOfBooks[index].title
+  && e.author === listOfBooks[index].author), 1);
+}
