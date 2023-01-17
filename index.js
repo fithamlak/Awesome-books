@@ -36,6 +36,26 @@ function removeBook(index) {
   listOfBooks.splice(listOfBooks.findIndex((e) => e.title === listOfBooks[index].title
   && e.author === listOfBooks[index].author));
 }
+
+// Display all books saved in the collection in the top part of the page.
+function bookLoders() {
+  for (let k = 0; k < listOfBooks.length; k += 1) {
+    const book = document.createElement('article');
+    const title = document.createElement('p');
+    title.innerText = `${listOfBooks[k].title} by ${listOfBooks[k].author}`;
+    book.append(title);
+    const button = document.createElement('button');
+    button.innerText = 'Remove';
+    button.addEventListener('click', () => {
+      removeBook(k);
+      book.style.display = 'none';
+    });
+    book.append(button);
+    const line = document.createElement('hr');
+    book.append(line);
+    dynamicCreation.append(book);
+  }
+}
 //  data is preserved in the browser's memory by using localStorage.
 // check local storage available
 // - if available : create local storage object
