@@ -13,6 +13,29 @@ function Book(title, author) {
 const b1 = new Book('atomic habit', 'James Clear');
 const b2 = new Book('Rich dad poor dad', 'Robert kiosaki');
 const listOfBooks = [b1, b2];
+
+function addBook(title, author) {
+  const newBook = new Book(title, author);
+  const book = document.createElement('article');
+  const titleByAuthor = document.createElement('p');
+  titleByAuthor.innerText = `${newBook.title} by ${newBook.author}`;
+  book.append(titleByAuthor);
+  const button = document.createElement('button');
+  button.innerText = 'Remove';
+  button.addEventListener('click', () => {
+    book.style.display = 'none';
+  });
+  book.append(button);
+  const line = document.createElement('hr');
+  book.append(line);
+  dynamicCreation.append(book);
+}
+
+// Create a function to remove a book from the collection
+function removeBook(index) {
+  listOfBooks.splice(listOfBooks.findIndex((e) => e.title === listOfBooks[index].title
+  && e.author === listOfBooks[index].author));
+}
 //  data is preserved in the browser's memory by using localStorage.
 // check local storage available
 // - if available : create local storage object
