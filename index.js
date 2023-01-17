@@ -8,6 +8,11 @@ function Book(title, author) {
   this.title = title;
   this.author = author;
 }
+
+// creat objects
+const b1 = new Book('atomic habit', 'James Clear');
+const b2 = new Book('Rich dad poor dad', 'Robert kiosaki');
+const listOfBooks = [b1, b2];
 //  data is preserved in the browser's memory by using localStorage.
 // check local storage available
 // - if available : create local storage object
