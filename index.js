@@ -17,6 +17,7 @@ const listOfBooks = [b1, b2];
 function addBook(title, author) {
   const newBook = new Book(title, author);
   const book = document.createElement('article');
+  book.classList.add('article_content');
   const titleByAuthor = document.createElement('p');
   titleByAuthor.innerText = `${newBook.title} by ${newBook.author}`;
   book.append(titleByAuthor);
@@ -41,8 +42,9 @@ function removeBook(index) {
 function bookLoders() {
   for (let k = 0; k < listOfBooks.length; k += 1) {
     const book = document.createElement('article');
+    book.classList.add('article_content');
     const title = document.createElement('p');
-    title.innerText = `${listOfBooks[k].title} by ${listOfBooks[k].author}`;
+    title.innerText = `"${listOfBooks[k].title}" by ${listOfBooks[k].author}`;
     book.append(title);
     const button = document.createElement('button');
     button.innerText = 'Remove';
