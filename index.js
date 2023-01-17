@@ -28,8 +28,6 @@ function addBook(title, author) {
     book.style.display = 'none';
   });
   book.append(button);
-  const line = document.createElement('hr');
-  book.append(line);
   dynamicCreation.append(book);
 }
 
@@ -60,8 +58,6 @@ function bookLoders() {
       book.style.display = 'none';
     });
     book.append(button);
-    const line = document.createElement('hr');
-    book.append(line);
     dynamicCreation.append(book);
     dynamicCreation.classList.add('dynamic');
   }

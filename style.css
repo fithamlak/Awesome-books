@@ -4,33 +4,50 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  overflow: hidden;
 }
 
-.dynamic {
+.daynamic {
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   border: solid 3px black;
+  padding: 10px;
+  overflow: hidden;
   /* align-items: center; */
 }
 
 .remove {
   /* right: 10px; */
-  margin-left: 200px;
   height: 30px;
+  margin: 6px 0 5px 0;
 }
 .article_content {
   margin-left: 5px;
   display: flex;
   justify-content: space-between;
+  overflow: hidden;
 }
 
-p {
+.article_content p {
+  width: 65%;
   margin-left: 10px;
-  padding: 5px;
+  padding-right: 30%;
 }
 
 .input_container {
   margin-top: 50px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
 }
+
+.btn {
+  width: 40px;
+  margin-left: 135px;
+}
+
