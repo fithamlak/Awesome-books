@@ -23,6 +23,7 @@ function addBook(title, author) {
   book.append(titleByAuthor);
   const button = document.createElement('button');
   button.innerText = 'Remove';
+  button.classList.add('remove');
   button.addEventListener('click', () => {
     book.style.display = 'none';
   });
@@ -43,10 +44,16 @@ function bookLoders() {
   for (let k = 0; k < listOfBooks.length; k += 1) {
     const book = document.createElement('article');
     book.classList.add('article_content');
+    if (k % 2 === 0) {
+      book.style.backgroundColor = '#e5e5e5c4';
+    } else {
+      book.style.backgroundColor = 'white';
+    }
     const title = document.createElement('p');
     title.innerText = `"${listOfBooks[k].title}" by ${listOfBooks[k].author}`;
     book.append(title);
     const button = document.createElement('button');
+    button.classList.add('remove');
     button.innerText = 'Remove';
     button.addEventListener('click', () => {
       removeBook(k);
@@ -56,6 +63,7 @@ function bookLoders() {
     const line = document.createElement('hr');
     book.append(line);
     dynamicCreation.append(book);
+    dynamicCreation.classList.add('dynamic');
   }
 }
 
