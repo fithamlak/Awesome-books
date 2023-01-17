@@ -56,6 +56,10 @@ function bookLoders() {
     dynamicCreation.append(book);
   }
 }
+
+addButton.addEventListener('click', () => {
+  addBook(titleInput.value, autherInput.value);
+});
 //  data is preserved in the browser's memory by using localStorage.
 // check local storage available
 // - if available : create local storage object
