@@ -3,81 +3,82 @@ const addButton = document.querySelector('#add');
 const titleInput = document.querySelector('#title');
 const autherInput = document.querySelector('#author');
 
-// Create a collection that keeps a list of books
-const listOfBooks = [
-  {
-    title: 'atomic habit',
-    author: 'James Clear',
-  },
-  {
-    title: 'Rich dad poor dad',
-    author: 'Robert kiosaki',
-  },
-  {
-    title: 'Think and grow rich',
-    author: 'napleon hill',
-  },
-];
+// put variables and most used functions first to acces them
+let booksData = [];
+let availableStorage;
+let count = 0;
 
-// Create a function to add a new book to the collection, with title and author
-function addBook(title, author) {
-  const tempBook = {
-    title,
-    author,
-  };
-  // save the new added book into the collection
-  listOfBooks.push(tempBook);
-  // desplay the new added book into the page
-  const addedBooks = document.querySelector('#add_books');
-  const book = document.createElement('article');
-  const titl = document.createElement('p');
-  titl.innerText = tempBook.title;
-  const authr = document.createElement('p');
-  authr.innerText = tempBook.author;
-  book.append(titl);
-  book.append(authr);
-  const button = document.createElement('button');
-  button.innerText = 'Remove';
-  button.addEventListener('click', () => {
-    book.style.display = 'none';
-  });
-  book.append(button);
-  const line = document.createElement('hr');
-  book.append(line);
-  addedBooks.append(book);
-}
-
-// Create a function to remove a book from the collection
-function removeBook(index) {
-  listOfBooks.splice(listOfBooks.findIndex((e) => e.title === listOfBooks[index].title
-  && e.author === listOfBooks[index].author), 1);
-}
-// Display all books saved in the collection in the top part of the page.
-function bookLoders() {
-  for (let k = 0; k < listOfBooks.length; k += 1) {
-    const book = document.createElement('article');
-    const title = document.createElement('p');
-    title.innerText = listOfBooks[k].title;
-    const author = document.createElement('p');
-    author.innerText = listOfBooks[k].author;
-    book.append(title);
-    book.append(author);
-    const button = document.createElement('button');
-    button.innerText = 'Remove';
-    button.addEventListener('click', () => {
-      removeBook(k);
-      book.style.display = 'none';
-    });
-    book.append(button);
-    const line = document.createElement('hr');
-    book.append(line);
-    dynamicCreation.append(book);
+function storeData(booksData) {
+  if (availableStorage) {
+    const jsonData = JSON.stringify(booksData);
+    availableStorage.setItem('books', jsonData);
   }
 }
 
-// add a new book to the collection and desplay it into the page when add button is clicked
+function retrieveData() {
+  const bookData = availableStorage.getItem('books');
+  const parseBookData = JSON.parse(bookData);
+  if (parseBookData) {
+    booksData = parseBookData;
+  }
+}
+
+// define class with object constructor
+class Book {
+  constructor(title, author) {
+    this.title = title;
+    this.author = author;
+    this.id = Math.random();
+  }
+
+  static addBook(book) {
+    const newBook = new Book(book.title, book.author);
+    booksData.push(newBook);
+    storeData(booksData);
+    window.location.reload();
+  }
+
+  static removeBook(book) {
+    booksData = booksData.filter((e) => e.id !== book.id);
+    storeData(booksData);
+  }
+}
+
+// Display all books saved in the collection in the top part of the page.
+function bookLoders(bookToBeLoad) {
+  const book = document.createElement('article');
+  book.classList.add('article_content');
+  if (count % 2 === 0) {
+    book.style.backgroundColor = '#e5e5e5c4';
+  } else {
+    book.style.backgroundColor = 'white';
+  }
+  count += 1;
+  const title = document.createElement('p');
+  title.innerText = `"${bookToBeLoad.title}" by ${bookToBeLoad.author}`;
+  book.append(title);
+  const button = document.createElement('button');
+  button.classList.add('remove');
+  button.innerText = 'Remove';
+  button.addEventListener('click', () => {
+    Book.removeBook(bookToBeLoad);
+    book.style.display = 'none';
+  });
+  book.append(button);
+  dynamicCreation.append(book);
+  dynamicCreation.classList.add('dynamic');
+}
+
+function displayToPage() {
+  booksData.forEach((book) => {
+    bookLoders(book);
+  });
+}
+
 addButton.addEventListener('click', () => {
-  addBook(titleInput.value, autherInput.value);
+  const newBook = new Book(titleInput.value, autherInput.value);
+  Book.addBook(newBook);
+  displayToPage(newBook);
 });
 //  data is preserved in the browser's memory by using localStorage.
 // check local storage available
@@ -111,8 +112,6 @@ function storageAvailable(type) {
   }
 }
 
-let availableStorage;
-
 if (storageAvailable('localStorage')) {
   // Yippee! We can use localStorage awesomeness
   availableStorage = window.localStorage;
@@ -120,38 +119,9 @@ if (storageAvailable('localStorage')) {
   // Too bad, no localStorage for us
   availableStorage = null;
 }
-// create a single object for the data
-const inputDataObject = {};
-// function to store data in a loclaStorage
-function storeData() {
-  inputDataObject.title = titleInput.value;
-  inputDataObject.author = autherInput.value;
-  const jsonData = JSON.stringify(inputDataObject);
-  availableStorage.setItem('InputData', jsonData);
-}
-
-// listen to change on input fields
-titleInput.addEventListener('change', () => {
-  storeData();
-});
-
-autherInput.addEventListener('change', () => {
-  storeData();
-});
-
-// retrive the data by stringify and
-// set the object to local on loads of page
-function retrieveData() {
-  const bookData = availableStorage.getItem('InputData');
-  const parseBookData = JSON.parse(bookData);
-  if (bookData?.length > 0) {
-    const { title, author } = parseBookData;
-    titleInput.value = title || '';
-    autherInput.value = author || '';
-  }
-}
+// create a single object for the dat
 
 window.onload = () => {
   retrieveData();
-  bookLoders();
+  displayToPage();
 };
