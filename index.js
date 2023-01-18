@@ -3,6 +3,16 @@ const addButton = document.querySelector('#add');
 const titleInput = document.querySelector('#title');
 const autherInput = document.querySelector('#author');
 
+// variables to navigate for each section;
+const linForBookList = document.querySelector('.for_list_link');
+const linkForAddSection = document.querySelector('.for_addSection_link');
+const linkForContInfo = document.querySelector('.for_contact_link');
+
+const bookListSection = document.querySelector('.book_list');
+const addNewSection = document.querySelector('.input_container');
+const contactSection = document.querySelector('.contact_info');
+
+
 // put variables and most used functions first to acces them
 let booksData = [];
 let availableStorage;
