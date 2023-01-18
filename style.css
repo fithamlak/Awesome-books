@@ -16,14 +16,13 @@
   border: solid 3px black;
   padding: 10px;
   overflow: hidden;
-  /* align-items: center; */
 }
 
 .remove {
-  /* right: 10px; */
   height: 30px;
-  margin: 6px 0 5px 0;
+  margin: 12px 0 5px 0;
 }
+
 .article_content {
   margin-left: 5px;
   display: flex;
@@ -50,4 +49,3 @@
   width: 40px;
   margin-left: 135px;
 }
-
