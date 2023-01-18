@@ -23,7 +23,7 @@ class Book {
     this.count += 1;
     book.classList.add('article_content');
     const titleByAuthor = document.createElement('p');
-    titleByAuthor.innerText = `${newBook.title} by ${newBook.author}`;
+    titleByAuthor.innerText = `"${newBook.title}" by ${newBook.author}`;
     book.append(titleByAuthor);
     const button = document.createElement('button');
     button.innerText = 'Remove';
