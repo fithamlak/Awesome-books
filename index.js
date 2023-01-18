@@ -9,10 +9,14 @@ class Book {
     this.title = title;
     this.author = author;
   }
-
+  static count = 0;
   static addBook(title, author) {
     const newBook = new Book(title, author);
     const book = document.createElement("article");
+    if (this.count % 2 == 0) {
+      book.style.backgroundColor = "#e5e5e5c4";
+    }
+    this.count += 1;
     book.classList.add("article_content");
     const titleByAuthor = document.createElement("p");
     titleByAuthor.innerText = `${newBook.title} by ${newBook.author}`;
@@ -35,6 +39,7 @@ class Book {
           e.author === listOfBooks[index].author
       )
     );
+    this.count -= 1;
   }
 }
 
