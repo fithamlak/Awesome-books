@@ -28,6 +28,7 @@ class Book {
   constructor(title, author) {
     this.title = title;
     this.author = author;
+    this.id = Math.random();
   }
 
   static addBook(book) {
@@ -38,11 +39,9 @@ class Book {
   }
 
   static removeBook(book) {
-    booksData.splice(
-      booksData.findIndex((e) => e.title === book.title
-      && e.author === book.author),
-    );
+    booksData = booksData.filter((e) => e.id !== book.id);
     storeData(booksData);
+    console.log(book.title);
   }
 }
 
@@ -63,7 +62,7 @@ function bookLoders(bookToBeLoad) {
   button.classList.add('remove');
   button.innerText = 'Remove';
   button.addEventListener('click', () => {
-    Book.removeBook(book);
+    Book.removeBook(bookToBeLoad);
     book.style.display = 'none';
   });
   book.append(button);
