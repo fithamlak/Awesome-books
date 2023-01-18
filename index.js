@@ -41,7 +41,6 @@ class Book {
   static removeBook(book) {
     booksData = booksData.filter((e) => e.id !== book.id);
     storeData(booksData);
-    console.log(book.title);
   }
 }
 
