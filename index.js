@@ -147,9 +147,9 @@ function bookListHandler() {
 }
 
 function addSectionHandler() {
-  bookListSection.style.display = 'flex';
+  bookListSection.style.display = 'none';
   contactSection.style.display = 'none';
-  addNewSection.style.display = 'none';
+  addNewSection.style.display = 'flex';
   linForBookList.style.color = 'black';
   linkForAddSection.style.color = 'blue';
   linkForContInfo.style.color = 'black';

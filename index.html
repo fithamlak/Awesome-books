@@ -12,12 +12,15 @@
 <body>
     <header class="sectionLinks">
         <nav>
-            <p>Awsome Books</p>
-            <ul>
-                <li class="for_list_link">list</li>
-                <li class="for_addSection_link">add book</li>
-                <li class="for_contact_link">contact info</li>
-            </ul>
+            <div class="nav-container">
+                <p class="nav-title">Awsome Books</p>
+                <ul class="nav-links">
+                   <li class="for_list_link">list</li>
+                   <li class="for_addSection_link">add book</li>
+                   <li class="for_contact_link">contact info</li>
+                </ul>
+            </div>
+            
         </nav>
     </heade>
     <main class="main-container">
@@ -25,13 +28,13 @@
           <h1>Awsome Books</h1>
           <div class="daynamic"></div>
         </section>
-        <section class="input_container">
+        <section class="input_container hide">
             <h2>Add A New Book</h2>
             <input type="text" name="title" id="title" placeholder="Title" required maxlength="30" />
             <input type="text" id="author" name="author" placeholder="Author" required />
             <button class="btn" id="add">Add</button>
         </section>
-        <section class="contact_info">
+        <section class="contact_info hide">
             <h3>contact info</h3>
         </section>
    </main>
