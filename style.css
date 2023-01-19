@@ -1,4 +1,6 @@
-
+/* * {
+  margin: 0;
+} */
 nav {
   height: 80px;
   width: 100%;
@@ -6,19 +8,15 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  /* background-color: blueviolet; */
   margin-top: 0;
   padding-top: 0;
 }
 
 .nav-container {
   order: 0;
-  width: 50%;
+  width: 98%;
   display: flex;
   border: solid 3px black;
-
-  /* background-color: blue; */
   height: 60%;
 }
 
@@ -27,8 +25,6 @@ nav {
   font-weight: bolder;
   width: 70%;
   margin-left: 2%;
-
-  /* background-color: aqua; */
 }
 
 nav p {
@@ -39,9 +35,9 @@ nav p {
 .nav-links {
   order: 1;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 35%;
+  width: 20%;
   height: 45px;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -52,9 +48,9 @@ nav p {
   font-weight: bold;
   height: 65%;
   text-align: center;
-  padding: 10px 5px 5px 2px;
-
-  /* padding-right: 5px; */
+  padding-right: 5px;
+  margin-left: 3px;
+  margin-right: 5px;
 }
 
 .for_list_link {
@@ -64,6 +60,7 @@ nav p {
 .for_addSection_link {
   border-right: solid 2px black;
   margin-top: 0;
+  margin-left: 0;
   margin-bottom: 0;
 }
 
@@ -81,7 +78,7 @@ nav p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 98%;
 }
 
 .book_list h1 {
@@ -90,7 +87,7 @@ nav p {
 }
 
 .daynamic {
-  width: 96%;
+  width: 98%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -171,7 +168,7 @@ nav p {
 
 .footer-container {
   order: 0;
-  width: 50%;
+  width: 98%;
   display: flex;
   border: solid 3px black;
 }

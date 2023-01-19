@@ -76,7 +76,7 @@ function bookLoders(bookToBeLoad) {
   });
   book.append(button);
   dynamicCreation.append(book);
-  dynamicCreation.classList.add('dynamic');
+  dynamicCreation.classList.add('daynamic');
 }
 
 function displayToPage() {
@@ -136,6 +136,7 @@ if (storageAvailable('localStorage')) {
 // create a single object for the dat
 
 window.onload = () => {
+  linForBookList.style.color = 'blue';
   setDateTime();
   retrieveData();
   displayToPage();
