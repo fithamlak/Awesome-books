@@ -3,6 +3,7 @@ nav {
   height: 80px;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -30,12 +31,17 @@ nav {
   /* background-color: aqua; */
 }
 
+nav p {
+  margin-top: 2px;
+  margin-left: 36%;
+}
+
 .nav-links {
   order: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 25%;
+  width: 35%;
   height: 45px;
   margin-top: 1px;
   margin-bottom: 1px;
@@ -46,7 +52,8 @@ nav {
   font-weight: bold;
   height: 65%;
   text-align: center;
-  padding-top: 5px;
+  padding: 10px 5px 5px 2px;
+  /* padding-right: 5px; */
 }
 
 .for_list_link {
@@ -172,4 +179,8 @@ nav {
   order: 0;
   margin-left: 2%;
   font-weight: bolder;
+}
+
+.hide {
+  display: none;
 }
