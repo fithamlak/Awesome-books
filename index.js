@@ -12,7 +12,6 @@ const bookListSection = document.querySelector('.book_list');
 const addNewSection = document.querySelector('.input_container');
 const contactSection = document.querySelector('.contact_info');
 
-
 // put variables and most used functions first to acces them
 let booksData = [];
 let availableStorage;
@@ -135,3 +134,36 @@ window.onload = () => {
   retrieveData();
   displayToPage();
 };
+
+// write event handler for each section to display it daynamically
+
+function bookListHandler() {
+  bookListSection.style.display = 'flex';
+  contactSection.style.display = 'none';
+  addNewSection.style.display = 'none';
+  linForBookList.style.color = 'blue';
+  linkForAddSection.style.color = 'black';
+  linkForContInfo.style.color = 'black';
+}
+
+function addSectionHandler() {
+  bookListSection.style.display = 'flex';
+  contactSection.style.display = 'none';
+  addNewSection.style.display = 'none';
+  linForBookList.style.color = 'black';
+  linkForAddSection.style.color = 'blue';
+  linkForContInfo.style.color = 'black';
+}
+
+function contactInfoHandler() {
+  bookListSection.style.display = 'none';
+  contactSection.style.display = 'block';
+  addNewSection.style.display = 'none';
+  linForBookList.style.color = 'black';
+  linkForAddSection.style.color = 'black';
+  linkForContInfo.style.color = 'blue';
+}
+
+linForBookList.addEventListener('click', bookListHandler);
+linkForAddSection.addEventListener('click', addSectionHandler);
+linkForContInfo.addEventListener('click', contactInfoHandler);
