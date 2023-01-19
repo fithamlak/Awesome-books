@@ -75,6 +75,9 @@ This project is for an list of awesome books in a webpage
 - new book is added to the collection and desplayed in the webpage when add button clicked
 - book is removed from the collection and dissapears from the page when remove button is clicked
 - data is preserved in the browser's memory by using localStorage
+- A Navigation bar, 
+- Three main sections (Books list, Add book form, Contact info)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
