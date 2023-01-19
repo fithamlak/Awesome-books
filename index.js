@@ -3,6 +3,16 @@ const addButton = document.querySelector('#add');
 const titleInput = document.querySelector('#title');
 const autherInput = document.querySelector('#author');
 
+// variables to navigate for each section;
+const linForBookList = document.querySelector('.for_list_link');
+const linkForAddSection = document.querySelector('.for_addSection_link');
+const linkForContInfo = document.querySelector('.for_contact_link');
+
+const dateParagraph = document.querySelector('.date');
+const bookListSection = document.querySelector('.book_list');
+const addNewSection = document.querySelector('.input_container');
+const contactSection = document.querySelector('.contact_info');
+
 // put variables and most used functions first to acces them
 let booksData = [];
 let availableStorage;
@@ -66,7 +76,7 @@ function bookLoders(bookToBeLoad) {
   });
   book.append(button);
   dynamicCreation.append(book);
-  dynamicCreation.classList.add('dynamic');
+  dynamicCreation.classList.add('daynamic');
 }
 
 function displayToPage() {
@@ -80,6 +90,10 @@ addButton.addEventListener('click', () => {
   Book.addBook(newBook);
   displayToPage(newBook);
 });
+
+function setDateTime() {
+  dateParagraph.innerHTML = new Date().toLocaleString();
+}
 //  data is preserved in the browser's memory by using localStorage.
 // check local storage available
 // - if available : create local storage object
@@ -122,6 +136,41 @@ if (storageAvailable('localStorage')) {
 // create a single object for the dat
 
 window.onload = () => {
+  linForBookList.style.color = 'blue';
+  setDateTime();
   retrieveData();
   displayToPage();
 };
+
+// write event handler for each section to display it daynamically
+
+function bookListHandler() {
+  bookListSection.style.display = 'flex';
+  contactSection.style.display = 'none';
+  addNewSection.style.display = 'none';
+  linForBookList.style.color = 'blue';
+  linkForAddSection.style.color = 'black';
+  linkForContInfo.style.color = 'black';
+}
+
+function addSectionHandler() {
+  bookListSection.style.display = 'none';
+  contactSection.style.display = 'none';
+  addNewSection.style.display = 'flex';
+  linForBookList.style.color = 'black';
+  linkForAddSection.style.color = 'blue';
+  linkForContInfo.style.color = 'black';
+}
+
+function contactInfoHandler() {
+  bookListSection.style.display = 'none';
+  contactSection.style.display = 'block';
+  addNewSection.style.display = 'none';
+  linForBookList.style.color = 'black';
+  linkForAddSection.style.color = 'black';
+  linkForContInfo.style.color = 'blue';
+}
+
+linForBookList.addEventListener('click', bookListHandler);
+linkForAddSection.addEventListener('click', addSectionHandler);
+linkForContInfo.addEventListener('click', contactInfoHandler);

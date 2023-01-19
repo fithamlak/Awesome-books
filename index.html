@@ -10,17 +10,48 @@
 </head>
 
 <body>
-    <main class="main-container">
-        <h1>Awsome Books</h1>
-        <div class="daynamic"></div>
-        <div class="input_container">
-            <h2>Add A New Book</h2>
-            <input type="text" name="title" id="title" placeholder="Title" required maxlength="30" />
-            <input type="text" id="author" name="author" placeholder="Author" required />
-            <button class="btn" id="add">Add</button>
-        </div>
-    </main>
-    <script src="./index.js"></script>
+    <header class="sectionLinks">
+        <nav>
+            <div class="nav-container">
+                <p class="nav-title">Awsome Books</p>
+                <ul class="nav-links">
+                    <li class="for_list_link">list</li>
+                    <li class="for_addSection_link">add book</li>
+                    <li class="for_contact_link">contact info</li>
+                </ul>
+            </div>
+            <p class="date">January 19th 2023, 8:40:20am</p>
+
+        </nav>
+        </header>
+        <main class="main-container">
+            <section class="book_list">
+                <h1>Awsome Books</h1>
+                <div class="daynamic"></div>
+            </section>
+            <section class="input_container hide">
+                <h2>Add A New Book</h2>
+                <input type="text" name="title" id="title" placeholder="Title" required maxlength="30" />
+                <input type="text" id="author" name="author" placeholder="Author" required />
+                <button class="btn" id="add">Add</button>
+            </section>
+            <section class="contact_info hide">
+                <h3>Contact information</h3>
+                <p>Do you have any questions or you just want to say "Hello"? You can reach out to us!</p>
+                <ul>
+                    <li>Our email: mail@mail.com</li>
+                    <li>Our phone number: 0043586534422</li>
+                    <li>Our address: Streetname 22, 84503 City, Country</li>
+
+                </ul>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer-container">
+                <p class="footer-content">Copyright</p>
+            </div>
+        </footer>
+        <script src="./index.js"></script>
 </body>
 
 </html>
