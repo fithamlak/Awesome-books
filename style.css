@@ -5,6 +5,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+
   /* background-color: blueviolet; */
   margin-top: 0;
   padding-top: 0;
@@ -15,8 +16,9 @@ nav {
   width: 50%;
   display: flex;
   border: solid 3px black;
+
   /* background-color: blue; */
-  height: 90%;
+  height: 60%;
 }
 
 .nav-title {
@@ -24,6 +26,7 @@ nav {
   font-weight: bolder;
   width: 70%;
   margin-left: 2%;
+
   /* background-color: aqua; */
 }
 
@@ -31,23 +34,27 @@ nav {
   order: 1;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 25%;
-  /* background-color: red; */
+  height: 45px;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 
 .nav-links li {
   list-style: none;
   font-weight: bold;
+  height: 65%;
+  text-align: center;
+  padding-top: 5px;
 }
 
 .for_list_link {
   border-right: solid 2px black;
-  height:fit-content;
 }
 
 .for_addSection_link {
   border-right: solid 2px black;
-  height: fit-content;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -69,8 +76,13 @@ nav {
   width: 50%;
 }
 
+.book_list h1 {
+  order: 0;
+  padding-left: 40%;
+}
+
 .daynamic {
-  width: 40%;
+  width: 96%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -99,14 +111,65 @@ nav {
 
 .input_container {
   margin-top: 50px;
-  height: 160px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+  width: 20%;
+}
+
+#title {
+  border: solid 2px black;
+  margin-top: 10px;
+}
+
+#author {
+  margin-top: 10px;
+  border: solid 2px black;
 }
 
 .btn {
+  margin-top: 10px;
   width: 40px;
-  margin-left: 135px;
+  margin-left: 85%;
+}
+
+.contact_info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact_info h3 {
+  padding-left: 45%;
+}
+
+.contact_info p {
+  width: 75%;
+  font-weight: bold;
+}
+
+.contact_info ul li {
+  font-weight: bold;
+}
+
+.footer {
+  padding-top: 3%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-container {
+  order: 0;
+  width: 50%;
+  display: flex;
+  border: solid 3px black;
+}
+
+.footer-content {
+  order: 0;
+  margin-left: 2%;
+  font-weight: bolder;
 }
