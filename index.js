@@ -8,6 +8,7 @@ const linForBookList = document.querySelector('.for_list_link');
 const linkForAddSection = document.querySelector('.for_addSection_link');
 const linkForContInfo = document.querySelector('.for_contact_link');
 
+const dateParagraph = document.querySelector('.date');
 const bookListSection = document.querySelector('.book_list');
 const addNewSection = document.querySelector('.input_container');
 const contactSection = document.querySelector('.contact_info');
@@ -89,6 +90,10 @@ addButton.addEventListener('click', () => {
   Book.addBook(newBook);
   displayToPage(newBook);
 });
+
+function setDateTime() {
+  dateParagraph.innerHTML = new Date().toLocaleString();
+}
 //  data is preserved in the browser's memory by using localStorage.
 // check local storage available
 // - if available : create local storage object
@@ -131,6 +136,7 @@ if (storageAvailable('localStorage')) {
 // create a single object for the dat
 
 window.onload = () => {
+  setDateTime();
   retrieveData();
   displayToPage();
 };
